@@ -8,7 +8,7 @@ from src.bot import GGBot
 
 def main():
     # config file parser initialization
-    parser = argparse.ArgumentParser(prog="gg-bot", description="Bot for a gg.pl")
+    parser = argparse.ArgumentParser(prog="gg-bot", description="Bot for gg.pl")
     parser.add_argument(
         "-u",
         "--username",
