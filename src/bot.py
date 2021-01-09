@@ -60,7 +60,11 @@ class GGBot:
                 EC.element_to_be_clickable((By.CSS_SELECTOR, ".subscribe_button"))
             )
             dismiss_button.click()
+            logging.debug("Clicked dismiss button")
+
+            logging.info("Closed cookie consent")
         except TimeoutException as e:
+            logging.erorr("Didn't find dismiss button on website")
             raise e
 
     def login(self, username: str, password: str):
@@ -134,6 +138,8 @@ class GGBot:
          - TimeoutException: If the div with start button didn't appear
         """
 
+        logging.info("Starting roulette")
+
         # go to roulette
         roulette_page = "https://www.gg.pl/#roulette"
         self.driver.get(roulette_page)
@@ -157,7 +163,7 @@ class GGBot:
             # find input tag
             start_button = start_buttons.find_elements_by_tag_name("input")[0]
             start_button.click()
-            logging.info("Started the roulette")
+            logging.info("Started roulette")
         except NoSuchElementException as e:
             logging.error("Couldn't find start button")
             raise e
