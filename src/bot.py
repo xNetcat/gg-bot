@@ -170,6 +170,35 @@ class GGBot:
         except TimeoutException as e:
             logging.error("Couldn't find the div containg the start button")
             raise e
+    
+    def reroll(self):
+        logging.info("Rerolling")
+
+        try:
+            # for some reason we can't directly access
+            # the input tag so we select the parent div
+            # and then select it
+            reroll_buttons = self.wait.until(    
+                EC.element_to_be_clickable(
+                    (
+                        (
+                            By.XPATH,
+                            "/html/body/div[1]/div[4]/div[2]/div/div[2]/div/div[1]/div[8]",
+                        )
+                    )
+                )
+            )
+
+            # find input tag
+            reroll_button = reroll_buttons.find_elements_by_tag("input")[0]
+            reroll_button.click()
+            logging.info("Rerolled")
+        except NoSuchElementException as e:
+            logging.error("Couldn't find reroll button")
+            raise e
+        except TimeoutException as e:
+            logging.error("Couldn't find the div containg the reroll button")
+            raise e        
 
     def quit(self):
         """Stops the bot"""
