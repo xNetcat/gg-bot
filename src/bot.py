@@ -169,6 +169,13 @@ class GGBot:
             raise e
 
     def reroll(self):
+        """Reroll the roulette
+
+        :Raises:
+         - NoSuchElementException: If the start button wasn't found
+         - TimeoutException: If the div with start button didn't appear
+        """
+        
         logging.info("Rerolling")
 
         try:
