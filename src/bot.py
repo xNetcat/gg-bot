@@ -123,7 +123,7 @@ class GGBot:
         # check if we got redirected to the next page
         if self.driver.current_url.split("/")[0] != "#":
             logging.error("Login failed")
-            raise (ValueError("username or password is wrong"))
+            raise (ValueError("Username or password is wrong"))
         else:
             logging.info("Logged in succesfully")
 
@@ -170,7 +170,7 @@ class GGBot:
         except TimeoutException as e:
             logging.error("Couldn't find the div containg the start button")
             raise e
-    
+
     def reroll(self):
         logging.info("Rerolling")
 
@@ -178,7 +178,7 @@ class GGBot:
             # for some reason we can't directly access
             # the input tag so we select the parent div
             # and then select it
-            reroll_buttons = self.wait.until(    
+            reroll_buttons = self.wait.until(
                 EC.element_to_be_clickable(
                     (
                         (
@@ -198,7 +198,7 @@ class GGBot:
             raise e
         except TimeoutException as e:
             logging.error("Couldn't find the div containg the reroll button")
-            raise e        
+            raise e
 
     def quit(self):
         """Stops the bot"""
