@@ -127,9 +127,6 @@ class GGBot:
     def start_roulette(self):
         """Starts roulette
 
-        :Returns:
-         - bool: indicates whether the roulette was started successfully
-
         :Raises:
          - NoSuchElementException: If the start button wasn't found
          - TimeoutException: If the div with start button didn't appear
@@ -175,7 +172,7 @@ class GGBot:
          - NoSuchElementException: If the start button wasn't found
          - TimeoutException: If the div with start button didn't appear
         """
-        
+
         logging.info("Rerolling")
 
         try:
