@@ -73,9 +73,6 @@ class GGBot:
         :Args:
          - username (str): username used to login to gg
          - password (str): password used to login to gg
-
-        :Returns:
-         - bool: indicates whether the login was successful or not
         """
 
         logging.info("Logging in")
